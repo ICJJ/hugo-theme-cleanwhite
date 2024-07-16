@@ -219,22 +219,25 @@
     </section>
     {{ end }}
     <!-- Featured Tags -->
-    {{ if .Site.Params.featured_tags }}
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
-            {{ $featured_condition_size := .Site.Params.featured_condition_size }}
-            {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-               {{ if gt (len $taxonomy.Pages) $featured_condition_size }}
-                    <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}" title="{{ $name }}">
+                {{ if .Site.Params.featured_tags }}
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        {{ $featured_condition_size := .Site.Params.featured_condition_size }}
+                        {{ $BaseURL := .Site.BaseURL | relLangURL}}
+                        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                        {{ if gt (len $taxonomy.Pages) $featured_condition_size }}
+                        <a href="{{ $BaseURL }}/tags/{{ $name | urlize }}" title="{{ $name }}">
                         {{ $name }}
-                    </a>
-               {{ end }}
-            {{ end }}
-        </div>
-    </section>
-    {{ end }}
+                        </a>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                </section>
+                {{ end }}
+
+
 
     <!-- Friends Blog -->
     {{ if .Site.Params.friends }}
