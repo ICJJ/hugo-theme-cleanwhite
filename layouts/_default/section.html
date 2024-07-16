@@ -27,8 +27,9 @@
                     <div class="tags">
                         {{ $featured_condition_size := .Site.Params.featured_condition_size }}
                         {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                        {{ $BaseURL := .Site.BaseURL}}
                         {{ if gt (len $taxonomy.Pages) $featured_condition_size }}
-                        <a href="{{ .Site.BaseURL | relLangURL}}tags/{{ $name | urlize }}" title="{{ $name }}">
+                        <a href="{{ $BaseURL | relLangURL}}tags/{{ $name | urlize }}" title="{{ $name }}">
                         {{ $name }}
                         </a>
                         {{ end }}
