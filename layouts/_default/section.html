@@ -26,10 +26,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                         {{ $featured_condition_size := .Site.Params.featured_condition_size }}
-                        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-                        {{ if gt (len $taxonomy.Pages) $featured_condition_size }}
-                        <a href="{{ .Site.BaseURL | reLangURL}}/tags/" }}{{ $name | urlize }}" title="{{ $name }}">
-                        {{ $name }}
+                        {{ rang
                         </a>
                         {{ end }}
                         {{ end }}
