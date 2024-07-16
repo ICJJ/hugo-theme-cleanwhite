@@ -29,7 +29,7 @@
                         {{ $BaseURL := .Site.BaseURL | relLangURL}}
                         {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
                         {{ if gt (len $taxonomy.Pages) $featured_condition_size }}
-                        <a href="{{ $BaseURL }}/ii             fgdg dgdfgd cer/tags/{{ $name | urlize }}" title="{{ $name }}">
+                        <a href="{{ $BaseURL }}/tags/{{ $name | urlize }}" title="{{ $name }}">
                         {{ $name }}
                         </a>
                         {{ end }}
